@@ -1,3 +1,4 @@
+```
 #!/bin/bash
 
 sudo sed -i 's/server-id=2/server-id=1/g' /etc/my.cnf
@@ -16,16 +17,6 @@ ssh osssupport@192.168.143.20 sudo sed -i 's/#replicate-wild-do-table=bifrost.%/
 
 #ssh osssupport@192.168.143.20 sudo systemctl restart mariadb
 #ssh osssupport@192.168.143.20 sudo status mariadb
-
-
-echo "
-##############################################################################################
-#Script Name    : mascot_m-blacktown_s.sh                                                    #
-#Description    : Change Blacktown MySQL database from Master to Slave Mode                  # 
-#                 (Master - Mascot | Slave - Blacktown)                                       #
-##############################################################################################
-
-"
 
 x=1
 a=heimdall
@@ -56,11 +47,11 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-printf "${GREEN} Master ---> Mascot    ip: ${MASTER_HOST} ${NC} \n"
-printf "${GREEN} Slave  ---> Blacktown ip: ${SLAVE_HOSTS} ${NC} \n"
+printf "${GREEN} Master ---> DB1   ip: ${MASTER_HOST} ${NC} \n"
+printf "${GREEN} Slave  ---> DB2 ip: ${SLAVE_HOSTS} ${NC} \n"
 
 # Dump the blacktown database
-echo "--------------------------------------- Dumping blacktown database ------------------------------"
+echo "--------------------------------------- Dumping DB2 ------------------------------"
 
 ##
 # MASTER
@@ -155,3 +146,4 @@ done
 x=$(( $x + 1 ));
 	
 done
+```
